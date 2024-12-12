@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Change from center to flex-start */
+    height: 100vh;
+    margin-top: 90px; /* Adjust this value as needed to push the content up */
+    background-image: 
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0) 50%),
+    linear-gradient(to bottom, rgb(8, 60, 79) 0%, rgb(3, 30, 40) 100%);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Puts the canvas behind your content */
+}
+
+.logo-container #text-logo {
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 100px; /* This size will be for larger screens */
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+/* Media query for screens that are 768px wide or less */
+@media (max-width: 768px) {
+    .logo-container #text-logo {
+        font-size: 75px; /* Smaller font size for smaller screens */
+    }
+}
+
+/* You can add more media queries for different breakpoints */
+@media (max-width: 480px) {
+    .logo-container #text-logo {
+        font-size: 50px; /* Even smaller font size for mobile screens */
+    }
+}
+
+.main-container {
+    text-align: center;
+}
+
+.logo-container img {
+    width: 300px; /* Adjust as needed */
+}
+
+/* Styles for the search input box */
+.search-container input[type=text] {
+    width: 90%;
+    padding: 10px;
+    padding-left: 35px; /* Add padding to make room for the icon */
+    margin: 10px 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg'); /* URL of the icon */
+    background-position: 10px center; /* Position the icon */
+    background-repeat: no-repeat; /* Prevent the icon from repeating */
+    background-size: 20px; /* Adjust the size of the icon */
+}
+
+/* Container for the buttons */
+.search-container .button-container {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+    margin-top: 10px; /* Space above the button container */
+    width: 100%; /* Ensures the container takes full width */
+    gap: 20px; /* Adds space between the buttons */
+}
+
+.search-container button {
+    margin: 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background-image: linear-gradient(
+        to bottom, 
+        rgba(196,157,92,1) 0%, /* Darker shade */
+        rgba(176,137,72,1) 100% /* Even darker shade */
+    ); /* Gradient effect */
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 150px;
+    text-align: center;
+    font-family: 'Hammersmith One', sans-serif; /* Apply the same font as Scholar Seek */
+    font-size: 14px; /* Increase the font size */
+}
+
+/* Hover effect for the buttons */
+.search-container button:hover {
+    background-image: linear-gradient(
+        to bottom, 
+        rgba(176,137,72,1) 0%, /* Slightly darker shade for hover */
+        rgba(156,117,52,1) 100% /* Even darker shade for hover */
+    ); /* Darker gradient for hover effect */
+}
+
+/* Style for "Search By" text */
+.search-by-text {
+    text-align: center;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Style for the search type buttons */
+.search-type-btn {
+    border-radius: 50%;  /* Makes the button circular */
+    width: 40px;
+    height: 40px;
+    line-height: 40px; /* Vertically center the text */
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.search-type-btn.active {
+    background-color: white;
+    color: #333;
+}

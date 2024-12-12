@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>ScholarSeek - Search Results</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/results.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="content-container">
+        <header class="header">
+            <div class="logo-container">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'res/logo.png' %}" alt="ScholarSeek Logo" id="header-logo">
+                </a>
+                <div id="text-logo">ScholarSeek</div>
+            </div>
+            <div class="search-area">
+                <div class="search-container">
+                    <form action="{% url 'search_by_criteria' %}" method="get" id="searchForm">
+                        <input type="text" id="searchQuery" name="searchQuery" placeholder="Search academic papers...">
+                        <button type="submit" id="searchButton">Search</button>
+                    </form>
+                </div>
+            </div>                
+        </header>
+    {% block content %}
+        <h2>Search Results</h2>
+        {% if results %}
+            <div class="search-results">
+                <ul>
+                    {% for paper in results %}
+                        <li>
+                            <div class="rank-number">{{ forloop.counter }} |</div>
+                            <div>
+                                <strong>Title:</strong> 
+                                <a href="https://arxiv.org/pdf/{{ paper.docno }}.pdf" target="_blank">{{ paper.title }}</a>
+                            </div>
+                            <div>
+                                <strong>Categories:</strong> {{ paper.categories }}
+                            </div>
+                            <div>
+                                <strong>Authors:</strong> {{ paper.authors }}
+                            </div>
+                            <div>
+                                <strong>Abstract:</strong> {{ paper.text }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>
