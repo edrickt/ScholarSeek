@@ -11,7 +11,7 @@ ScholarSeek, developed using Django and PyTerrier, is a academic search engine. 
 </p>
 
 # Installation
- - Git clone the repository: `git clone https://github.com/nihalafs11/cs6821-IR-Project`
+ - Git clone the repository: `git clone https://github.com/nihalafs11/cs6821-IR-Project](https://github.com/edrickt/ScholarSeek.git`
 
  - Install Python and JDK
 
